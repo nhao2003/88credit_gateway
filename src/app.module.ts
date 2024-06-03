@@ -14,6 +14,9 @@ import { ConfigModule } from '@nestjs/config';
 import { BankModule } from './app/bank/bank.module';
 import { BankCardModule } from './app/bank_card/bank_card.module';
 import { BlogModule } from './app/blog/blog.module';
+import { LoanRequestModule } from './app/loan_request/loan_request.module';
+import { PostModule } from './app/post/post.module';
+import { EkycModule } from './app/ekyc/ekyc.module';
 
 @Module({
   imports: [
@@ -54,6 +57,8 @@ import { BlogModule } from './app/blog/blog.module';
     BankModule,
     BankCardModule,
     BlogModule,
+    LoanRequestModule,
+    PostModule,
   ],
   controllers: [AppController],
   providers: [
