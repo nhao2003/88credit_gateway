@@ -7,6 +7,7 @@ import { EkycModule } from './app/ekyc/ekyc.module';
 import { AuthModule } from './app/auth/auth.module';
 import {
   AccessTokenJwtGuard,
+  EnvConstants,
   LoggingInterceptor,
   TransformationInterceptor,
 } from './common';
@@ -30,7 +31,13 @@ import { StorageModule } from './app/storage/storage.module';
           name: Microservices.SERVER,
           transport: Transport.RMQ,
           options: {
-            urls: ['amqp://guest:guest@rabbitmq:5672'],
+            urls: [
+              'amqp://guest:guest@' +
+                (process.env[EnvConstants.RABBITMQ_HOST] ??
+                  'localhost' ??
+                  'localhost') +
+                ':5672',
+            ],
             queue: 'server_queue',
           },
         },
@@ -38,7 +45,11 @@ import { StorageModule } from './app/storage/storage.module';
           name: Microservices.STORAGE,
           transport: Transport.RMQ,
           options: {
-            urls: ['amqp://guest:guest@rabbitmq:5672'],
+            urls: [
+              'amqp://guest:guest@' +
+                (process.env[EnvConstants.RABBITMQ_HOST] ?? 'localhost') +
+                ':5672',
+            ],
             queue: 'storage_queue',
           },
         },
@@ -46,7 +57,11 @@ import { StorageModule } from './app/storage/storage.module';
           name: Microservices.EKYC,
           transport: Transport.RMQ,
           options: {
-            urls: ['amqp://guest:guest@rabbitmq:5672'],
+            urls: [
+              'amqp://guest:guest@' +
+                (process.env[EnvConstants.RABBITMQ_HOST] ?? 'localhost') +
+                ':5672',
+            ],
             queue: 'ekyc_queue',
           },
         },
