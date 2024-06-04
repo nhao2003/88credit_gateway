@@ -11,6 +11,8 @@ export const CreateRpcPayload = createParamDecorator(
       body: request.body,
       query: request.query,
       headers: request.headers,
+      files: request.files,
+      file: request.file,
     };
     return payload;
   },

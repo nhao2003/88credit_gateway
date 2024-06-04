@@ -16,7 +16,7 @@ import { BankCardModule } from './app/bank_card/bank_card.module';
 import { BlogModule } from './app/blog/blog.module';
 import { LoanRequestModule } from './app/loan_request/loan_request.module';
 import { PostModule } from './app/post/post.module';
-import { EkycModule } from './app/ekyc/ekyc.module';
+import { StorageModule } from './app/storage/storage.module';
 
 @Module({
   imports: [
@@ -30,7 +30,7 @@ import { EkycModule } from './app/ekyc/ekyc.module';
           name: Microservices.SERVER,
           transport: Transport.RMQ,
           options: {
-            urls: ['amqp://localhost:5672'],
+            urls: ['amqp://guest:guest@rabbitmq:5672'],
             queue: 'server_queue',
           },
         },
@@ -38,7 +38,7 @@ import { EkycModule } from './app/ekyc/ekyc.module';
           name: Microservices.STORAGE,
           transport: Transport.RMQ,
           options: {
-            urls: ['amqp://guest:guest@localhost:5672'],
+            urls: ['amqp://guest:guest@rabbitmq:5672'],
             queue: 'storage_queue',
           },
         },
@@ -46,7 +46,7 @@ import { EkycModule } from './app/ekyc/ekyc.module';
           name: Microservices.EKYC,
           transport: Transport.RMQ,
           options: {
-            urls: ['amqp://guest:guest@localhost:5672'],
+            urls: ['amqp://guest:guest@rabbitmq:5672'],
             queue: 'ekyc_queue',
           },
         },
@@ -59,6 +59,7 @@ import { EkycModule } from './app/ekyc/ekyc.module';
     BlogModule,
     LoanRequestModule,
     PostModule,
+    StorageModule,
   ],
   controllers: [AppController],
   providers: [

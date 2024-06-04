@@ -7,9 +7,10 @@ export class AllExceptionsFilter {
   catch(exception: any, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse();
-    const status = exception['status'] || 500;
+
+    const status = Number(exception.status) || 500;
     const message = exception.message || 'Internal server error';
-    const error = exception.error;
+    const error = exception;
     response.status(status).json({
       statusCode: status,
       message,

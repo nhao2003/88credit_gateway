@@ -25,7 +25,7 @@ export class TransformationInterceptor<T>
             'response_message',
             context.getHandler(),
           ),
-          data: data?.result || data,
+          data: data?.data || data,
         };
       }),
     );
