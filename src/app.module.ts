@@ -18,6 +18,7 @@ import { BlogModule } from './app/blog/blog.module';
 import { LoanRequestModule } from './app/loan_request/loan_request.module';
 import { PostModule } from './app/post/post.module';
 import { StorageModule } from './app/storage/storage.module';
+import { UserModule } from './app/user/user.module';
 
 @Module({
   imports: [
@@ -75,6 +76,7 @@ import { StorageModule } from './app/storage/storage.module';
     LoanRequestModule,
     PostModule,
     StorageModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [
