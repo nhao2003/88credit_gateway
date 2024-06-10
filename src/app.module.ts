@@ -19,6 +19,7 @@ import { LoanRequestModule } from './app/loan_request/loan_request.module';
 import { PostModule } from './app/post/post.module';
 import { StorageModule } from './app/storage/storage.module';
 import { UserModule } from './app/user/user.module';
+import { LoanContractModule } from './app/loan_contract/loan_contract.module';
 
 @Module({
   imports: [
@@ -77,6 +78,7 @@ import { UserModule } from './app/user/user.module';
     PostModule,
     StorageModule,
     UserModule,
+    LoanContractModule,
   ],
   controllers: [AppController],
   providers: [
