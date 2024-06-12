@@ -6,6 +6,9 @@ import { Microservices } from 'src/core/constants/constants';
 
 @Injectable()
 export class UserService {
+  getMe(payload: any) {
+    return this.serverClient.send('user.me', payload);
+  }
   constructor(
     @Inject(Microservices.SERVER)
     private readonly serverClient: ClientProxy,

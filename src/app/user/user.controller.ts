@@ -32,4 +32,9 @@ export class UserController {
   updateUser(@CreateRpcPayload() payload) {
     return this.userService.updateUser(payload);
   }
+
+  @Get('me')
+  getMe(@CreateRpcPayload() payload) {
+    return this.userService.getMe(payload);
+  }
 }
