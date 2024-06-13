@@ -1,4 +1,4 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Delete, Get, Post } from '@nestjs/common';
 import { PostService } from './post.service';
 import { CreateRpcPayload } from 'src/common';
 
@@ -29,5 +29,10 @@ export class PostController {
   @Post(':id/reject')
   rejectPost(@CreateRpcPayload() data) {
     return this.postService.rejectPost(data);
+  }
+
+  @Delete(':id')
+  deletePost(@CreateRpcPayload() data) {
+    return this.postService.deletePost(data);
   }
 }

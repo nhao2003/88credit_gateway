@@ -4,8 +4,11 @@ import { Microservices } from 'src/core/constants/constants';
 
 @Injectable()
 export class PostService {
+  deletePost(data: any) {
+    return this.serverClient.send('post.delete', data);
+  }
   getPostById(data: any) {
-    throw new Error('Method not implemented.');
+    return this.serverClient.send('post.getOne', data);
   }
   constructor(
     @Inject(Microservices.SERVER)
