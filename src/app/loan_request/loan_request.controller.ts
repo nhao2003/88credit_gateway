@@ -27,7 +27,6 @@ export class LoanRequestController {
 
   @Post(':id/approve')
   async approveLoanRequest(@CreateRpcPayload() payload: RpcPayload) {
-    console.log('approveLoanRequest', payload);
     return this.loanRequestService.approveLoanRequest(payload);
   }
 

@@ -9,6 +9,10 @@ export class EkycService {
     @Inject(Microservices.EKYC) private readonly ekycClient: ClientProxy,
   ) {}
 
+  uploadFile(data: RpcPayload) {
+    return this.ekycClient.send('ekyc.file.upload', data);
+  }
+
   addFace(data: RpcPayload) {
     return this.ekycClient.send('ekyc.face.add', data);
   }

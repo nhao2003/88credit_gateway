@@ -16,4 +16,12 @@ export class PostService {
   getPosts(data: any) {
     return this.serverClient.send('post.get', data);
   }
+
+  approvePost(data: any) {
+    return this.serverClient.send('post.approve', data);
+  }
+
+  rejectPost(data: any) {
+    return this.serverClient.send('post.reject', data);
+  }
 }

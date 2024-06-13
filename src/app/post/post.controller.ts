@@ -15,4 +15,14 @@ export class PostController {
   getPosts(@CreateRpcPayload() data) {
     return this.postService.getPosts(data);
   }
+
+  @Post(':id/approve')
+  approvePost(@CreateRpcPayload() data) {
+    return this.postService.approvePost(data);
+  }
+
+  @Post(':id/reject')
+  rejectPost(@CreateRpcPayload() data) {
+    return this.postService.rejectPost(data);
+  }
 }
