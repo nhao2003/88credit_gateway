@@ -3,10 +3,17 @@ import { EkycService } from './ekyc.service';
 import { CreateRpcPayload } from 'src/common';
 import { RpcPayload } from 'src/common/types/rpc_payload.type';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { first, firstValueFrom } from 'rxjs';
 
 @Controller('ekyc')
 export class EkycController {
   constructor(private readonly ekycService: EkycService) {}
+
+  @Post('file')
+  @UseInterceptors(FileInterceptor('file'))
+  async uploadFile(@CreateRpcPayload() payload: RpcPayload) {
+    return this.ekycService.uploadFile(payload);
+  }
 
   @Post('face/:requestId/add-face')
   @UseInterceptors(FileInterceptor('file'))

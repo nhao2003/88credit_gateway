@@ -16,6 +16,11 @@ export class PostController {
     return this.postService.getPosts(data);
   }
 
+  @Get(':id')
+  getPostById(@CreateRpcPayload() data) {
+    return this.postService.getPostById(data);
+  }
+
   @Post(':id/approve')
   approvePost(@CreateRpcPayload() data) {
     return this.postService.approvePost(data);

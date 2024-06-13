@@ -4,6 +4,9 @@ import { Microservices } from 'src/core/constants/constants';
 
 @Injectable()
 export class PostService {
+  getPostById(data: any) {
+    throw new Error('Method not implemented.');
+  }
   constructor(
     @Inject(Microservices.SERVER)
     private readonly serverClient: ClientProxy,
