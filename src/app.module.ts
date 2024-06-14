@@ -20,6 +20,7 @@ import { PostModule } from './app/post/post.module';
 import { StorageModule } from './app/storage/storage.module';
 import { UserModule } from './app/user/user.module';
 import { LoanContractModule } from './app/loan_contract/loan_contract.module';
+import { DashboardModule } from './app/dashboard/dashboard.module';
 
 @Module({
   imports: [
@@ -79,6 +80,7 @@ import { LoanContractModule } from './app/loan_contract/loan_contract.module';
     StorageModule,
     UserModule,
     LoanContractModule,
+    DashboardModule,
   ],
   controllers: [AppController],
   providers: [
